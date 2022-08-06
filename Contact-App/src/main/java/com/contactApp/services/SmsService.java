@@ -1,6 +1,8 @@
 package com.contactApp.services;
 
+import com.contactApp.models.Contact;
 import com.contactApp.models.SMS;
+import com.contactApp.repository.ContactRepository;
 import com.contactApp.repository.SMSRepository;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -17,8 +19,10 @@ public class SmsService{
     @Autowired
     SMSRepository smsRepository;
 
+    @Autowired
+    ContactRepository contactRepository;
     private final String ACCOUNT_SID = "ACf926b81b3923fd4fdd58cd79c6f3e769";
-    private final String AUTH_TOKEN = "9fdbf45c4032b304aece7059c6ef89e2";
+    private final String AUTH_TOKEN = "0ff7ef13286872ce1f254eb2793a6369";
     private final String FROM_NUMBER = "+16693221783";
 
     public void send(SMS sms) throws ParseException {
@@ -28,7 +32,7 @@ public class SmsService{
         int max = 999999;
         int num = (int) (Math.random() * (max - min + 1) + min);
         String msg = "You OTP -" + num;
-
+        System.out.println(sms.getPhoneNumber());
         Message message = Message.creator(new PhoneNumber(sms.getPhoneNumber()), new PhoneNumber(FROM_NUMBER), msg).create();
 
         sms.setOtp(num);
@@ -41,6 +45,9 @@ public class SmsService{
         if(smsOptional.isPresent()){
             if(sms.getOtp()==smsOptional.get().getOtp()) {
                 smsRepository.delete(smsOptional.get());
+                Contact contact = contactRepository.findByPhoneNumber(sms.getPhoneNumber());
+                contact.setVerified(true);
+               contactRepository.save(contact);
                 return true;
             }
         }

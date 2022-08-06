@@ -21,6 +21,7 @@ public class SMSController {
         try {
             smsService.send(sms);
         } catch (Exception e) {
+            e.getMessage();
             e.printStackTrace();
             return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
