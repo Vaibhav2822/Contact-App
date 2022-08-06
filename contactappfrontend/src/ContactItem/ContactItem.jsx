@@ -6,6 +6,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { NavLink } from "react-router-dom";
 const ContactItem = (props) => {
   return (
     <ListItem alignItems="flex-start">
@@ -28,6 +29,25 @@ const ContactItem = (props) => {
           </React.Fragment>
         }
       />
+      <NavLink to={"/sendMessage"} state={{phoneNumber:props.contact.phoneNumber}}>
+        <button
+          className="message"
+          style={{
+            width: "120px",
+            height: "50px",
+            fontFamily: "sans-serif",
+            fontSize: "15px",
+            marginRight: "20px",
+            marginTop: "5px",
+            backgroundColor: "yellowgreen",
+            border: "0px",
+            borderRadius: "5px",
+            fontStyle: "italic",
+          }} 
+        >
+          Send Message
+        </button>
+      </NavLink>
     </ListItem>
   );
 };

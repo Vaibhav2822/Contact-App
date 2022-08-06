@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './HomePage';
 import ContactList from './ContactList';
 import ListOfMessages from './ListOfMessages';
+import SendMessage from './SendMessage/SendMessage';
 import{
   BrowserRouter,
   Routes,
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/all" element={<ContactList />}></Route>
             <Route path='/allMessages' element={<ListOfMessages />}></Route>
+            <Route path='/sendMessage' element={<SendMessage />}></Route>
           </Routes>
         </BrowserRouter>
     </div>
