@@ -8,8 +8,9 @@ const ListOfMessages = () => {
 
   const fetchListMessage = async () => {
     await axios.get(`http://localhost:8080/sms/all`).then((data) => {
-      setListMessage(data.data);
-      console.log(data.data);
+      const val = data.data;
+      val.reverse();
+      setListMessage(val);
     });
   };
 
@@ -17,6 +18,7 @@ const ListOfMessages = () => {
     fetchListMessage();
     console.log(listMessage);
   }, []);
+  
 
   return (
     <>
@@ -25,6 +27,7 @@ const ListOfMessages = () => {
           return (
             <>
               <ContactItem contact={item} isMessage={true} />
+              <p style={{marginLeft:"75px",marginTop:"-1%"}}>{item.date}</p>
               <Divider variant="inset" component="li" />
             </>
           )
