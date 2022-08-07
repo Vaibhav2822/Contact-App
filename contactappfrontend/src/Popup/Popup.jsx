@@ -18,6 +18,10 @@ const Popup = (props) => {
     console.log(data);
   };
 
+  useEffect(() => {
+     console.log(form);
+  },[form])
+
   const handleSubmit = () => {
     addNewContact();
   }
