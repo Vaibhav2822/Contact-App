@@ -28,30 +28,12 @@ public class SmsService{
     public void send(SMS sms) throws ParseException {
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        int min = 100000;
-        int max = 999999;
-        int num = (int) (Math.random() * (max - min + 1) + min);
-        String msg = (sms.getMsg()==null)? "Hi, Your OTP is -":sms.getMsg() + num;
+        String msg = (sms.getMsg()==null)? "Hi, Your OTP is -":sms.getMsg() ;
         System.out.println(sms.getPhoneNumber());
         Message message = Message.creator(new PhoneNumber(sms.getPhoneNumber()), new PhoneNumber(FROM_NUMBER), msg).create();
 
-        sms.setOtp(num);
 
         smsRepository.save(sms);
     }
-    public boolean verifyOTP(SMS sms) throws Exception{
-        Optional<SMS> smsOptional = Optional.ofNullable(smsRepository.findTopByOrderByIdDesc(sms.getPhoneNumber()));
 
-        if(smsOptional.isPresent()){
-            if(sms.getOtp()==smsOptional.get().getOtp()) {
-                smsRepository.delete(smsOptional.get());
-                Contact contact = contactRepository.findByPhoneNumber(sms.getPhoneNumber());
-                contact.setVerified(true);
-               contactRepository.save(contact);
-                return true;
-            }
-        }
-        return false;
-
-    }
 }

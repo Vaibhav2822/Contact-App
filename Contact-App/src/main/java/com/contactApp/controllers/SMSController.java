@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/sms")
@@ -27,14 +29,9 @@ public class SMSController {
         }
         return new ResponseEntity<Boolean>(true, HttpStatus.OK);
     }
-
-    @PostMapping("/verifyOTP")
-    public boolean verifyOTP(@RequestBody SMS sms) throws Exception {
-        boolean verify = smsService.verifyOTP(sms);
-        if (verify) {
-            return true;
-        }else {
-            return false;
-        }
+    @GetMapping("/all")
+    public List<SMS> findAllSMS(){
+        return repository.findAll();
     }
+
 }

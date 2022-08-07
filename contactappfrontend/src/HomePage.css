@@ -11,8 +11,8 @@
 }
 
 .viewAllContacts{
-    width: 500px;
-    height: 50px;
+    width: 30%;
+    height: 6vh;
     margin-top: 100px;
     background-color: yellowgreen;
     padding-top: 5px;
@@ -38,8 +38,8 @@
 }
 
 .viewAllMessages{
-    width: 500px;
-    height: 50px;
+    width: 30%;
+    height: 6vh;
     margin-top: 100px;
     background-color: yellowgreen;
     

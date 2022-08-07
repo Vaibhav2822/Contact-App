@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 const SendMessage = () => {
    
    const {state} = useLocation();
-   const [message, setMessage] = useState("Hi, Your OTP is");
+   const [message, setMessage] = useState("Hi, Your OTP is : "+Math.floor(100000 + Math.random() * 900000));
    console.log(message);
    const sendOtp = async () => {
       const {data} = await axios({
@@ -24,7 +24,7 @@ const SendMessage = () => {
    return(
       <div style={{textAlign:"center"}}>
          <h1>SEND MESSAGE</h1>
-         <input type="text" value = {message} onChange = {(e) => setMessage(e.target.value)} ></input><br></br>
+         <input type="text" value = {message} onChange = {(e) => setMessage(e.target.value)} disabled></input><br></br>
          <button onClick={() => sendOtp()}>Send Message</button>
       </div>
    )
