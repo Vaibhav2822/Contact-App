@@ -1,0 +1,31 @@
+.popup-box{
+    text-align: center;
+ 
+}
+.box{
+    padding-top: 5px;
+}
+.sendMessageButton{
+    margin-top: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-style: italic;
+    background-color: yellowgreen;
+    width:20%;
+}
+.entity{
+    margin-bottom: 5px;
+    padding-bottom: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.input{
+    width: 20%;
+    height: 10%;
+    outline: none;
+}

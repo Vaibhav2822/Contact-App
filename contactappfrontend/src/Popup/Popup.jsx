@@ -1,5 +1,7 @@
+import { textAlign } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import './Popup.css';
 
 const Popup = (props) => {
   const [form, setForm] = useState({
@@ -34,32 +36,32 @@ const Popup = (props) => {
           x
         </span>
         <form onSubmit={() => handleSubmit()}>
-          <p>Enter you First Name</p>
-          <input
+          <p className="entity">Enter your First Name</p>
+          <input className="input"
             type="text"
             onChange={(e) => setForm({ ...form, firstName: e.target.value })}
             placeholder="First Name"
           />
-          <p>Enter you Last Name</p>
-          <input
+          <p className="entity">Enter your Last Name</p>
+          <input className="input"
             type="text"
             onChange={(e) => setForm({ ...form, lastName: e.target.value })}
             placeholder="Last Name"
           />
-          <p>Enter you Phone Number</p>
-          <input
+          <p className="entity">Enter your Phone Number</p>
+          <input className="input"
             type="text"
             onChange={(e) => setForm({ ...form, phoneNumber: e.target.value })}
             placeholder="Phone Number"
           />
-          <p>Enter you Email</p>
-          <input
+          <p className="entity">Enter your Email</p>
+          <input className="input"
             type="email"
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="Email"
           />
           <div>
-            <button type="submit">Add Contact</button>
+            <button type="submit" className="sendMessageButton">Add Contact</button>
           </div>
         </form>
       </div>
