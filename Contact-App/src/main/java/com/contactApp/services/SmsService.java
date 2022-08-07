@@ -31,7 +31,7 @@ public class SmsService{
         int min = 100000;
         int max = 999999;
         int num = (int) (Math.random() * (max - min + 1) + min);
-        String msg = "You OTP -" + num;
+        String msg = (sms.getMsg()==null)? "Hi, Your OTP is -":sms.getMsg() + num;
         System.out.println(sms.getPhoneNumber());
         Message message = Message.creator(new PhoneNumber(sms.getPhoneNumber()), new PhoneNumber(FROM_NUMBER), msg).create();
 

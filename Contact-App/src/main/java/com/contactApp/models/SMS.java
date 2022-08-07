@@ -21,5 +21,6 @@ public class SMS {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String phoneNumber;
+    private String msg;
     private int otp;
 }
