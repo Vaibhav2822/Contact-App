@@ -11,7 +11,7 @@ const SendMessage = () => {
   const sendOtp = async () => {
     const { data } = await axios({
       method: "post",
-      url: "http://localhost:8080/sms/sendOTP",
+      url: "https://contact2408.herokuapp.com/sms/sendOTP",
       data: {
         phoneNumber: state.phoneNumber,
         msg: message,

@@ -15,7 +15,7 @@ function ContactList() {
   const [listContact, setListContact] = useState([]);
 
   const fetchListContact = async () => {
-    await axios.get(`http://localhost:8080/all`).then((data) => {
+    await axios.get(`https://contact2408.herokuapp.com/all`).then((data) => {
       setListContact(data.data);
     });
   };

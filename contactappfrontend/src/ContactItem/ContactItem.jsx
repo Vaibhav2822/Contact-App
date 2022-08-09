@@ -20,7 +20,7 @@ const ContactItem = (props) => {
   const handleOnDelete=async()=>{
     const {data} = await axios({
       method: 'delete',
-      url: `http://localhost:8080/${props.contact.sno}`,
+      url: `https://contact2408.herokuapp.com/${props.contact.sno}`,
    })
    props.fetch();
   }

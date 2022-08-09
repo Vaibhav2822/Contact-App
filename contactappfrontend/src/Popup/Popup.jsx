@@ -14,7 +14,7 @@ const Popup = (props) => {
   const addNewContact = async () => {
     const { data } = await axios({
       method: "post",
-      url: "http://localhost:8080/",
+      url: "https://contact2408.herokuapp.com/",
       data: form,
     });
     console.log(data);
