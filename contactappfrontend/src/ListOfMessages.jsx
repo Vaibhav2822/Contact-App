@@ -7,7 +7,7 @@ const ListOfMessages = () => {
   const [listMessage, setListMessage] = useState([]);
 
   const fetchListMessage = async () => {
-    await axios.get(`http://localhost:8080/sms/all`).then((data) => {
+    await axios.get(`https://contact2408.herokuapp.com/sms/all`).then((data) => {
       const val = data.data;
       val.reverse();
       setListMessage(val);
