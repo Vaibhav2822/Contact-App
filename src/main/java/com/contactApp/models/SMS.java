@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,4 +23,5 @@ public class SMS {
     private Long id;
     private String phoneNumber;
     private String msg;
+    private LocalDateTime date = LocalDateTime.now();
 }
